@@ -28,4 +28,5 @@ public class Ornament : MonoBehaviour
     {
         this.text.transform.forward = Camera.main.transform.forward;
     }
+
 }

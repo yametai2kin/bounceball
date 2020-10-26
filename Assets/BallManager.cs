@@ -37,19 +37,26 @@ public class BallManager : MonoBehaviour
 
     void OnCollisionExit( Collision collision )
     {
-        Ornament ornament = collision.gameObject.GetComponent<Ornament>();
-        if( ornament != null )
-        {
-            this.score += ornament.addScore;
-            this.score *= ornament.mulScore;
-            collision.gameObject.SetActive( false );
-            return;
-        }
-
         if( !collision.collider.material.name.Contains( "Floor" ) )
         {
             this.score += 10;
             this.bounceCount++;
         }
     }
+
+    void OnTriggerExit( Collider other )
+    {
+        Ornament ornament = other.gameObject.GetComponent<Ornament>();
+        if( ornament != null )
+        {
+            this.score += ornament.addScore;
+            if( ornament.mulScore > 0 )
+            {
+                this.score *= ornament.mulScore;
+            }
+            other.gameObject.SetActive( false );
+            return;
+        }
+    }
+
 }

@@ -27,6 +27,7 @@ public class CanvasManager : MonoBehaviour
         {
             case GameManager.State.Ready:
             {
+                this.textScore.enabled = true;
                 this.textNavigation.enabled = true;
                 this.textNavigation.text = "クリックでボールを打ち出せ！";
                 this.planeBackground.SetActive( true );
@@ -36,6 +37,7 @@ public class CanvasManager : MonoBehaviour
 
             case GameManager.State.Shooting:
             {
+                this.textScore.enabled = true;
                 this.textNavigation.enabled = false;
                 this.planeBackground.SetActive( false );
                 this.buttonReset.SetActive( false );
@@ -53,6 +55,7 @@ public class CanvasManager : MonoBehaviour
 
             case GameManager.State.Result:
             {
+                this.textScore.enabled = false;
                 this.textNavigation.enabled = true;
                 this.textNavigation.text = string.Format( "スコア:{0}", this.gameManager.ballManager.score );
                 this.planeBackground.SetActive( true );
@@ -62,6 +65,7 @@ public class CanvasManager : MonoBehaviour
 
             default:
             {
+                this.textScore.enabled = false;
                 this.textNavigation.enabled = false;
                 this.planeBackground.SetActive( false );
                 this.buttonReset.SetActive( false );
