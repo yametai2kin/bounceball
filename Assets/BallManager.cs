@@ -14,6 +14,12 @@ public class BallManager : MonoBehaviour
     {
         get;
         set;
+   }
+
+    public GameObject ball
+    {
+        get;
+        set;
     }
 
 
@@ -26,11 +32,7 @@ public class BallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        if( rigidbody.velocity.magnitude < 1 )
-        {
-            rigidbody.velocity = Vector3.zero;
-        }
+
     }
 
     void OnCollisionExit( Collision collision )

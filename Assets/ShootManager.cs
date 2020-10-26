@@ -33,6 +33,7 @@ public class ShootManager : MonoBehaviour
         }
     }
 
+    /*
     void OnGUI()
     {
         GUILayout.Box( "Bounce Ball", GUILayout.Width( 170 ), GUILayout.Height( 100 ) );
@@ -43,4 +44,5 @@ public class ShootManager : MonoBehaviour
         GUILayout.TextArea( string.Format( "Score:{0}", ballManager.score ) );
         GUILayout.EndArea();
     }
+    */
 }
