@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
+    private GameManager gameManager = null;
+
     public int bounceCount
     {
         get;
@@ -26,7 +28,7 @@ public class BallManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class BallManager : MonoBehaviour
             {
                 this.score *= ornament.mulScore;
             }
+            Instantiate( this.gameManager.hitEffect, ornament.transform.position, Quaternion.identity );
             other.gameObject.SetActive( false );
             return;
         }

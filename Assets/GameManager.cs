@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public float stopSpeed = 1.5f;
     public GameObject stage = null;
     public GameObject[] stagePrehabs = null;
+    public GameObject hitEffect = null;
     public State state = State.Ready;
 
     // Start is called before the first frame update
@@ -103,43 +104,4 @@ public class GameManager : MonoBehaviour
         this.ballManager = this.stage.GetComponentInChildren<BallManager>();
     }
 
-    /*
-    private static GameManager instance;
-    public static GameManager Instance
-    {
-        get
-        {
-            if( instance == null )
-            {
-                instance = FindObjectOfType< GameManager >();
-                if( instance == null )
-                {
-                    Debug.LogError( "GameManagerをアタッチしているGameObjectはありません" );
-                }
-            }
-
-            return instance;
-        }
-    }
-
-    virtual protected void Awake()
-    {
-        CheckInstance();
-    }
-
-    protected bool CheckInstance()
-    {
-        if( instance == null )
-        {
-            instance = this as GameManager;
-            return true;
-        }
-        else if( Instance == this )
-        {
-            return true;
-        }
-        Destroy( this );
-        return false;
-    }
-    */
 }
