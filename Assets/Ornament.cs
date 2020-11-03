@@ -6,7 +6,9 @@ public class Ornament : MonoBehaviour
 {
     public int addScore = 0;
     public int mulScore = 1;
+    public AudioClip hitSound = null;
     private TextMesh text = null;
+
 
     // Start is called before the first frame update
     void Start()

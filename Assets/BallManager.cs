@@ -5,6 +5,8 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
     private GameManager gameManager = null;
+    public AudioClip hitWall = null;
+    private AudioSource audioSource = null;
 
     public int bounceCount
     {
@@ -29,6 +31,7 @@ public class BallManager : MonoBehaviour
     void Start()
     {
         this.gameManager = FindObjectOfType<GameManager>();
+        this.audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +46,9 @@ public class BallManager : MonoBehaviour
         {
             this.score += 10;
             this.bounceCount++;
+
+            // 効果音
+            this.audioSource.PlayOneShot( this.hitWall );
         }
     }
 
@@ -58,6 +64,12 @@ public class BallManager : MonoBehaviour
             }
             Instantiate( this.gameManager.hitEffect, ornament.transform.position, Quaternion.identity );
             other.gameObject.SetActive( false );
+
+            // 効果音
+            if( ornament.hitSound != null )
+            {
+                this.audioSource.PlayOneShot( ornament.hitSound );
+            }
             return;
         }
     }
